@@ -1,48 +1,53 @@
+from abc import ABC, abstractmethod
 
-from abc import ABC , abstractmethod
 class Vehicle(ABC):
     @abstractmethod
     def get_fuel_efficiency(self):
         pass
 
     def describe(self):
-        print(f"This is the description of type: {self.__class__.__name__}")
+        print(f"This is the description of type:{self.__class__.__name__}")
 
-    @staticmethod
-    def from_name(name):
+    @classmethod
+    def from_name(cls, name):
         if name.lower() == "car":
+            print("Created instance of class: Car")
             return Car()
         elif name.lower() == "truck":
+            print("Created instance of class: Truck")
             return Truck()
         else:
-            raise ValueError("Invalid input")
+            raise ValueError(f"Invalid input '{name}'")
 
 
 class Car(Vehicle):
     def get_fuel_efficiency(self):
-        print("Fuel efficiency of car: 25 miles per gallon")
+        return 25
 
 
 class Truck(Vehicle):
 
     def get_fuel_efficiency(self):
-        print("Fuel efficiency of truck: 15 miles per gallon")
-
+        return 15
 
 
 def main():
     try:
-        vehicle_name1 = Vehicle.from_name("Car")
-        vehicle_name1.get_fuel_efficiency()
-
-        vehicle_name2 = Vehicle.from_name("Truck")
-        vehicle_name2.get_fuel_efficiency()
-
+        print()
         car = Car()
-        truck = Truck()
-
         car.describe()
+
+        print()
+        truck = Truck()
         truck.describe()
+
+        print()
+
+        vehicle_name = Vehicle.from_name(input("Enter Car or Truck:\n"))
+        vehicle_name.describe()
+        print(f"Fuel efficiency :{vehicle_name.get_fuel_efficiency()} miles per gallon")
+
+
 
     except ValueError as e:
         print(f"Error: {e}")
