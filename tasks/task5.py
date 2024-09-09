@@ -1,7 +1,7 @@
 #Python program to reverse a string
 def main():
-    word = input("Enter the string to be reversed:\n")
 
+    word = input("Enter the string to be reversed:\n")
     char_count = 0
     for n in word:
         char_count+=1
