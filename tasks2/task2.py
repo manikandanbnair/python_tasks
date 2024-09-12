@@ -59,12 +59,12 @@ def main():
 
         print(f"Laptop:")
         laptop.describe()
-        laptop.power_usage()
+        print(f"Power usage: {laptop.power_usage()}")
         print()
 
         print(f"Smart Phone:")
         smart_phone.describe()
-        smart_phone.power_usage()
+        print(f"Power usage: {smart_phone.power_usage()}")
         print()
 
         device = input("Enter Laptop or SmartPhone:\n")

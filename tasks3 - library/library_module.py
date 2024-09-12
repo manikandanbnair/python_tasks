@@ -23,9 +23,6 @@ class Library:
 
     def add_book(self,book):
         self.book_list[book.book_id] = book
-        print(self.book_list)
-
-
 
     def remove_book(self,book_id):
        if book_id in self.book_list.keys():
